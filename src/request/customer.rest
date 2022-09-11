@@ -1,0 +1,74 @@
+///////////////// Get all Customers
+###
+GET http://localhost:4000/customers HTTP/1.1
+
+///////////////////
+/// Get Customer by ID
+###
+GET http://localhost:4000/customers/631d504b706a97a9d399bffd HTTP/1.1
+
+//////
+###
+// Create a new customer 
+POST http://localhost:4000/customers HTTP/1.1
+content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyODY5MDUyLCJleHAiOjE2NjM0NzM4NTJ9.82t992bzWc9mognNWPFy-S0LM8EFjTTyPLrKtUk4gdc
+
+{
+  "sin": "545456523",
+  "first_name": "John",
+  "last_name": "Doe",
+  "phone_number": "123-456-7890",
+  "email": "john5@gmail.com",
+  "birth_date": "1990-01-01",
+  "salary_month": 1000.00,
+  "address":{ 
+    "address1": "123 Main St",
+    "address2": "",
+    "city": 1,
+    "province": 10,
+    "postal_code": "M1M1M1"
+   },
+  "picture_url": "https://www.google.com",
+  "status": 1,
+  "bank_account": "123456789",
+  "bank_route": "123456789",
+  "bank_branch": "123"
+} 
+
+////////////////////////////////
+###
+// Update a customer when exists 
+PUT http://localhost:4000/customers/631d5d1a9825aa6653fe22c5 HTTP/1.1
+content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyODY5MDUyLCJleHAiOjE2NjM0NzM4NTJ9.82t992bzWc9mognNWPFy-S0LM8EFjTTyPLrKtUk4gdc
+
+{
+  "sin": "545456325",
+  "first_name": "Hammid",
+  "last_name": "Ariel",
+  "phone_number": "123-258-3096",
+  "email": "xxx43@gmail.com",
+  "birth_date": "1990-01-01",
+  "salary_month": 5000.00,
+  "address":{ 
+    "address1": "30 San RomanoWay",
+    "address2": "",
+    "city": 5,
+    "province": 1,
+    "postal_code": "M1M1M1"
+   },
+  "picture_url": "https://www.google.com",
+  "status": 11,
+  "bank_account": "987654321",
+  "bank_route": "987654321",
+  "bank_branch": "321"
+} 
+
+
+/////////////////////////////
+// Delete a customer
+###
+DELETE http://localhost:4000/customers/631d5d1a9825aa6653fe22c5 HTTP/1.1
+content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyODY5MDUyLCJleHAiOjE2NjM0NzM4NTJ9.82t992bzWc9mognNWPFy-S0LM8EFjTTyPLrKtUk4gdc
