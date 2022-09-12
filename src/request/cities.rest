@@ -1,8 +1,0 @@
-///////////////// Get by City Name and Province Name 
-###
-GET http://localhost:4000/cities/Vancouver/BC HTTP/1.1
-
-///////////////// All Cities 
-###
-GET http://localhost:4000/cities HTTP/1.1
-
