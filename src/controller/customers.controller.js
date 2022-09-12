@@ -66,6 +66,10 @@ export const createCustomer = (req, res) => {
     .catch((err) => res.status(400).json({ error: err }));
 };
 
+/////////////////////////////////
+
+
+
 // OK
 export const getCustomers = (req, res) => {
   Customers.find()

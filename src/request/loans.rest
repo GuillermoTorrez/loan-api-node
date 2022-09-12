@@ -16,25 +16,18 @@ content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
 
 {
-  "sin": "545456189",
-  "first_name": "John",
-  "last_name": "Doe",
-  "phone_number": "123-456-7890",
-  "email": "john5@gmail.com",
-  "birth_date": "1990-01-01",
-  "salary_month": 1000.00,
-  "address":{ 
-    "address1": "123 Main St",
-    "address2": "",
-    "city_id": "631e37846af11738e767c672",
-    "postal_code": "M1M1M1"
-   },
-  "picture_url": "https://www.google.com",
-  "status_migration_id": "631e8706ce615f2089df58ac",
-  "bank_account": "123456789",
-  "bank_route": "123456789",
-  "bank_branch": "123"
-} 
+ customer_id: -- ,
+ date: Date,
+ amount: Number,
+ interest: Number,
+ term: Number,
+ firstday_payment: Date,
+ status_aproval: Boolean,
+ credit_score: Number,
+ frequency_payment: --,
+ userid: --
+ types_payment--
+}
 
 
 ////////////////////////////////

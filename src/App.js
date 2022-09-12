@@ -2,8 +2,9 @@ import{ config } from 'dotenv'
 import express from "express";
 import morgan from "morgan";
 import pkg from "../package.json";
+
+
 import customersRoutes from "./routes/customers.routes";
-import loansRoutes from "./routes/loans.routes";
 import usersRoutes from "./routes/users.routes";
 import loginRoutes from "./routes/login.routes";
 import citiesRoutes from "./routes/cities.routes";
@@ -11,6 +12,7 @@ import statusRoutes from "./routes/status.routes";
 import creditscoreRoutes from "./routes/creditscore.routes"; 
 import typespaymentRoutes from "./routes/types.routes";
 import frequenciesRoutes from "./routes/frequencies.routes";
+import loansRoutes from "./routes/loans.routes";
 
 const app = express();
 config();

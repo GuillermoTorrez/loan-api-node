@@ -2,7 +2,7 @@ import Customers from "../models/Customers";
 import Loans from "../models/Loans";
 import Users from "../models/Users";
 import Frequencies from "../models/Frequencies";
-import TypesPayments from "../models/TypesPayments";
+import TypesPayment from "../models/TypesPayment";
 
 export const createLoan = (req, res) => {
   const {
@@ -40,7 +40,7 @@ export const createLoan = (req, res) => {
       .end();
   }
 
-  const find_type = TypesPayments.findOne({ _id: types_payment });
+  const find_type = TypesPayment.findOne({ _id: types_payment });
   if (!find_type) {
     return res
       .status(400)
@@ -82,7 +82,7 @@ export const getLoans = (req, res) => {
     })
     .populate({
       path: "customer_id",
-      select: "first_name last_name",
+      select: "sin name",
     })
     .then((loan) => {
       if (loan) {
@@ -98,17 +98,21 @@ export const getLoans = (req, res) => {
 };
 
 // OK
-export const getCustomerById = (req, res) => {
+export const getLoanById = (req, res) => {
   const id = req.params.customerId;
   console.log(id);
   Loans.findById(id)
     .populate({
-      path: "address.city_id",
-      select: "city province_id province_name",
+      path: "frequency_payment",
+      select: "description",
     })
     .populate({
-      path: "status_migration_id",
-      select: "name",
+      path: "types_payment",
+      select: "description",
+    })
+    .populate({
+      path: "customer_id",
+      select: "sin name",
     })
     .then((loan) => {
       if (loan) {
@@ -165,12 +169,12 @@ export const deleteLoanById = (req, res) => {
 };
 
 ///////////////////////
-export const deleteAllLoan = (req, res) => {
-  Loans.deleteMany({})
-    .then((deletedLoan) => {
-      res.json({}).status(204).end();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// export const deleteAllLoan = (req, res) => {
+//  Loans.deleteMany({})
+//    .then((deletedLoan) => {
+//      res.json({}).status(204).end();
+//    })
+//    .catch((err) => {
+//      console.log(err);
+//    });
+// };

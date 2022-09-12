@@ -2,13 +2,12 @@ import { Router } from "express";
 import * as loansCtrl from "../controller/loans.controller";
 import userExtractor from "../middlewares/userExtractor";
 
-const router = Router();
+const routerloans = Router();
 
-router.get("/", userExtractor, loansCtrl.getLoans);
-router.post("/", userExtractor, loansCtrl.createLoan);
-router.get("/:loansId", userExtractor, loansCtrl.getLoanById);
-router.put("/:loansId", userExtractor, loansCtrl.updateLoanById);
-router.delete("/:loansId", userExtractor, loansCtrl.deleteLoanById);
-router.delete("/", userExtractor, loansCtrl.deleteAllLoans);
+routerloans.get("/", userExtractor, loansCtrl.getLoans);
+routerloans.post("/", userExtractor, loansCtrl.createLoan);
+routerloans.get("/:loansId", userExtractor, loansCtrl.getLoanById);
+routerloans.put("/:loansId", userExtractor, loansCtrl.updateLoanById);
+routerloans.delete("/:loansId", userExtractor, loansCtrl.deleteLoanById);
 
-export default router;
+export default routerloans;
