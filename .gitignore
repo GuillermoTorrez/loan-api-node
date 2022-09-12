@@ -2,6 +2,7 @@
 .env 
 .rest
 env
+request
 
 # dependencies
 /node_modules
