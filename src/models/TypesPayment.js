@@ -1,17 +1,21 @@
 import { Schema, model } from "mongoose";
 import uniqueValidator from "mongoose-unique-validator";
 
-const StatusMSchema = new Schema(
+const TypespaymentSchema = new Schema(
   {
-    name: {
+    description: {
       type: String,
+      unique: true,
+    },
+    interest_rate: {
+      type: Number,
       unique: true,
     },
   },
   { timestamps: true, versionKey: false }
 );
 
-StatusMSchema.set("toJSON", {
+TypespaymentSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
@@ -19,6 +23,6 @@ StatusMSchema.set("toJSON", {
   },
 });
 
-StatusMSchema.plugin(uniqueValidator);
-const Status = model("Status", StatusMSchema);
-module.exports = Status;
+TypespaymentSchema.plugin(uniqueValidator);
+const TypesPayment = model("TypesPayment", TypespaymentSchema);
+module.exports = TypesPayment;

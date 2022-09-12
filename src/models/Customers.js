@@ -3,7 +3,7 @@ import uniqueValidator from "mongoose-unique-validator";
 
 const customerSchema = new Schema(
   {
-    sin: { type: Number, required: true, unique: true, maxlength: 9},
+    sin: { type: Number, required: true, unique: true, maxlength: 9 },
     first_name: { type: String, required: true, trim: true },
     last_name: { type: String, required: true, trim: true },
     phone_number: { type: String, required: true, trim: true },
@@ -13,12 +13,14 @@ const customerSchema = new Schema(
     address: {
       address1: { type: String, required: true, trim: true },
       address2: { type: String, required: false, trim: true },
-      city: Number,
-      province: Number,
+      city_id: {
+        type: Schema.Types.ObjectId,
+        ref: "Cities",
+      },
       postal_code: { type: String, required: true, trim: true, maxlength: 6 },
     },
     picture_url: String,
-    status: Number,
+    status_migration_id: { type: Schema.Types.ObjectId, ref: "Status" },
     bank_account: Number,
     bank_route: Number,
     bank_branch: Number,
@@ -34,7 +36,6 @@ customerSchema.set("toJSON", {
     delete returnedObject.__v;
   },
 });
-
 
 customerSchema.plugin(uniqueValidator);
 export default model("Customers", customerSchema);

@@ -9,5 +9,6 @@ router.post("/", userExtractor ,customersCtrl.createCustomer);
 router.get("/:customerId", customersCtrl.getCustomerById);
 router.put("/:customerId", userExtractor ,customersCtrl.updateCustomerById);
 router.delete("/:customerId", userExtractor ,customersCtrl.deleteCustomerById);
+router.delete("/", customersCtrl.deleteAllCustomers);
 
 export default router;

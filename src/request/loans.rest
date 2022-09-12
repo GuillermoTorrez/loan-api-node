@@ -1,16 +1,17 @@
-///////////////// Get all Customers
+///////////////// Get all Loans
 ###
-GET http://localhost:4000/customers HTTP/1.1
+GET http://localhost:4000/loans HTTP/1.1
 
 ///////////////////
-/// Get Customer by ID
+/// Get Loan by ID
 ###
-GET http://localhost:4000/customers/631e893ab00295f8f492a2ed HTTP/1.1
+GET http://localhost:4000/loans/631e893ab00295f8f492a2ed HTTP/1.1
+
 
 //////
 ###
-// Create a new customer 
-POST http://localhost:4000/customers HTTP/1.1
+// Create a new loan 
+POST http://localhost:4000/loans HTTP/1.1
 content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
 
@@ -35,10 +36,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0O
   "bank_branch": "123"
 } 
 
+
 ////////////////////////////////
 ###
-// Update a customer when exists 
-PUT http://localhost:4000/customers/631e893ab00295f8f492a2ed HTTP/1.1
+// Update a loan when exists 
+PUT http://localhost:4000/loans/631e893ab00295f8f492a2ed HTTP/1.1
 content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
 
@@ -67,7 +69,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0O
 /////////////////////////////
 // Delete a customer
 ###
-DELETE http://localhost:4000/customers/631d5d1a9825aa6653fe22c5 HTTP/1.1
+DELETE http://localhost:4000/loans/631d5d1a9825aa6653fe22c5 HTTP/1.1
 content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
 
@@ -75,6 +77,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0O
 /////////////////////////////
 // Delete All customer
 ###
-DELETE http://localhost:4000/customers HTTP/1.1
+DELETE http://localhost:4000/loans HTTP/1.1
 content-Type: application/json
 ////////////////////////////

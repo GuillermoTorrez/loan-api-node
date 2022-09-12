@@ -1,9 +1,9 @@
 import { Schema, model } from "mongoose";
 import uniqueValidator from "mongoose-unique-validator";
 
-const StatusMSchema = new Schema(
+const frequencySchema = new Schema(
   {
-    name: {
+    description: {
       type: String,
       unique: true,
     },
@@ -11,7 +11,7 @@ const StatusMSchema = new Schema(
   { timestamps: true, versionKey: false }
 );
 
-StatusMSchema.set("toJSON", {
+frequencySchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
@@ -19,6 +19,6 @@ StatusMSchema.set("toJSON", {
   },
 });
 
-StatusMSchema.plugin(uniqueValidator);
-const Status = model("Status", StatusMSchema);
-module.exports = Status;
+frequencySchema.plugin(uniqueValidator);
+const Frequency = model("Frequency", frequencySchema);
+module.exports = Frequency;

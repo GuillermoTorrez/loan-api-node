@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import User from "../models/Users.js";
 import Role from "../models/Roles.js";
-import jwt from "jsonwebtoken";
 
 export const getUsers = async (req, res) => {
   await User.find({}).populate("role", {name: 1})
@@ -13,18 +12,9 @@ export const createUsers = async (req, res) => {
   const { body } = req;
   const { username, name, phone_number, email, role, password } = body;
 
-  /// Auth process
-  const authorization = req.get('authorization');
-  let token = null;
-  if(authorization && authorization.toLowerCase().startsWith('bearer ')){
-    token = authorization.substring(7)
-  }
-  const decodedToken = jwt.verify(token, process.env.SECRET_KEY)
-  if(!token || !decodedToken.id){
-    return res.status(401).json({ error: 'token missing or invalid' })
-  }
+  // console.log(role)
 
-  const find_role = await Role.findOne({ name: role });
+  const find_role = await Role.findById(role)
   if (!find_role) {
     return res
       .status(400)

@@ -1,5 +1,6 @@
 import Customers from "../models/Customers";
 import Users from "../models/Users";
+import Cities from "../models/Cities";
 
 export const createCustomer = (req, res) => {
   const {
@@ -12,13 +13,14 @@ export const createCustomer = (req, res) => {
     salary_month,
     address,
     picture_url,
-    status,
+    status_migration_id,
     bank_account,
     bank_route,
     bank_branch,
   } = req.body;
 
-  const {userid} = req; // we retrieve the userid from request  
+  const { userid } = req; // we retrieve the userid from request
+  const city_id = req.body.address.city_id;
 
   const find_user = Users.findOne({ _id: userid });
   if (!find_user) {
@@ -26,6 +28,18 @@ export const createCustomer = (req, res) => {
       .status(400)
       .json({
         error: "User not found",
+      })
+      .end();
+  }
+
+  // console.log(city_id);
+
+  const find_city = Cities.findOne({ id: city_id });
+  if (!find_city) {
+    return res
+      .status(400)
+      .json({
+        error: "City not found",
       })
       .end();
   }
@@ -40,7 +54,7 @@ export const createCustomer = (req, res) => {
     salary_month: salary_month,
     address: address,
     picture_url: picture_url,
-    status: status,
+    status_migration_id: status_migration_id,
     bank_account: bank_account,
     bank_route: bank_route,
     bank_branch: bank_branch,
@@ -55,6 +69,14 @@ export const createCustomer = (req, res) => {
 // OK
 export const getCustomers = (req, res) => {
   Customers.find()
+    .populate({
+      path: "address.city_id",
+      select: "city province_id province_name",
+    })
+    .populate({
+      path: "status_migration_id",
+      select: "name",
+    })
     .then((customer) => {
       if (customer) {
         return res.json(customer);
@@ -73,6 +95,14 @@ export const getCustomerById = (req, res) => {
   const id = req.params.customerId;
   console.log(id);
   Customers.findById(id)
+    .populate({
+      path: "address.city_id",
+      select: "city province_id province_name",
+    })
+    .populate({
+      path: "status_migration_id",
+      select: "name",
+    })
     .then((customer) => {
       if (customer) {
         return res.json(customer);
@@ -89,7 +119,7 @@ export const getCustomerById = (req, res) => {
 // OK
 export const updateCustomerById = (req, res) => {
   const customer = req.body;
-  const { userid } = req
+  const { userid } = req; // we retrieve the userid from ;
 
   const NewCustomersinfo = {
     sin: customer.sin,
@@ -101,7 +131,7 @@ export const updateCustomerById = (req, res) => {
     salary_month: customer.salary_month,
     address: customer.address,
     picture_url: customer.picture_url,
-    status: customer.status,
+    status_migration_id: customer.status_migration_id,
     bank_account: customer.bank_account,
     bank_route: customer.bank_route,
     bank_branch: customer.bank_branch,
@@ -132,3 +162,12 @@ export const deleteCustomerById = (req, res) => {
 };
 
 ///////////////////////
+export const deleteAllCustomers = (req, res) => {
+  Customers.deleteMany({})
+    .then((deletedCustomer) => {
+      res.json({}).status(204).end();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
