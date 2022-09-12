@@ -16,19 +16,18 @@ content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
 
 {
- customer_id: -- ,
- date: Date,
- amount: Number,
- interest: Number,
- term: Number,
+ customer_id: "631e893ab00295f8f492a2ed",
+ date: "2022-09-15",
+ amount: 100000,
+ interest: 0.15,
+ term: 12,
  firstday_payment: Date,
- status_aproval: Boolean,
- credit_score: Number,
- frequency_payment: --,
+ status_aproval: false,
+ credit_score: 820,
+ frequency_payment: "631ec1c692cebf552c555b8e",
  userid: --
- types_payment--
+ types_payment: "631ebd0cb114e841d3d7937d": 
 }
-
 
 ////////////////////////////////
 ###
