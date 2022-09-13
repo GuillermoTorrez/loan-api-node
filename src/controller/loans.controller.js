@@ -2,8 +2,14 @@ import Loans from "../models/Loans";
 import Users from "../models/Users";
 import Frequencies from "../models/Frequencies";
 import TypesPayments from "../models/TypesPayment";
+import { getCreditScore } from "../controller/creditscore.controller"
+
+
 
 export const createLoan = (req, res) => {
+
+  let credit_score_cal = getCreditScore();
+
   const {
     customer_id,
     date,
@@ -12,9 +18,8 @@ export const createLoan = (req, res) => {
     term,
     firstday_payment,
     status_aproval,
-    credit_score,
     frequency_payment,
-    types_payment,
+    types_payment
   } = req.body;
 
   const { userid } = req; // we retrieve the userid from re
@@ -57,7 +62,7 @@ export const createLoan = (req, res) => {
     term: term,
     firstday_payment: firstday_payment,
     status_aproval: status_aproval,
-    credit_score: credit_score,
+    credit_score: credit_score_cal.toString(),
     frequency_payment: frequency_payment,
     types_payment: types_payment,
     userid: userid,
@@ -98,7 +103,7 @@ export const getLoans = (req, res) => {
 
 // OK
 export const getLoanById = (req, res) => {
-  const id = req.params.loansId;
+  const id = req.params.id ;
   Loans.findById(id)
     .populate({
       path: "frequency_payment",
@@ -127,10 +132,13 @@ export const getLoanById = (req, res) => {
 
 // OK
 export const updateLoanById = (req, res) => {
-  const { id } = req.params;
-  const  loan  =  req.body;
-  const { userid } = req;
 
+  let credit_score_cal = getCreditScore();
+
+  const { id } = req.params;
+  const loan = req.body;
+  const { userid } = req;
+  
   const NewLoansinfo = {
     customer_id: loan.customer_id,
     date: loan.date,
@@ -139,11 +147,11 @@ export const updateLoanById = (req, res) => {
     term: loan.term,
     firstday_payment: loan.firstday_payment,
     status_aproval: loan.status_aproval,
-    credit_score: loan.credit_score,
+    credit_score: credit_score_cal,
     frequency_payment: loan.frequency_payment,
     types_payment: loan.types_payment,
     userid: userid,
-    updateAt: new Date(),
+    updateAt: new Date()
   };
 
   Loans.findOneAndUpdate(id, NewLoansinfo, { new: true })
@@ -155,7 +163,6 @@ export const updateLoanById = (req, res) => {
       res.json({}).status(400).end();
     });
 };
-
 
 // OK ---
 export const deleteLoanById = (req, res) => {
