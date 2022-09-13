@@ -2,9 +2,13 @@
 .env
 env
 
+rest
+request
+
 .rest
 .request
 /request
+
 
 # dependencies
 /node_modules
