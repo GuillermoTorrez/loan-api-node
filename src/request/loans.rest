@@ -1,70 +1,59 @@
-///////////////// Get all Loans
+/// Get all Loans
 ###
 GET http://localhost:4000/loans HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYzMDE4Mzg5LCJleHAiOjE2NjM2MjMxODl9.2Y5dtL7WAhNEFrgFH9I84ptWTr2l3TcdEA6YxeGMYeE
 
-///////////////////
+
 /// Get Loan by ID
 ###
-GET http://localhost:4000/loans/631e893ab00295f8f492a2ed HTTP/1.1
+GET http://localhost:4000/loans/631fce334fa054831b464f2d HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYzMDE4Mzg5LCJleHAiOjE2NjM2MjMxODl9.2Y5dtL7WAhNEFrgFH9I84ptWTr2l3TcdEA6YxeGMYeE
 
-
-//////
-###
-// Create a new loan 
+/// Create a new loan
+### 
 POST http://localhost:4000/loans HTTP/1.1
 content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYzMDE4Mzg5LCJleHAiOjE2NjM2MjMxODl9.2Y5dtL7WAhNEFrgFH9I84ptWTr2l3TcdEA6YxeGMYeE
 
 {
- customer_id: "631e893ab00295f8f492a2ed",
- date: "2022-09-15",
- amount: 100000,
- interest: 0.15,
- term: 12,
- firstday_payment: Date,
- status_aproval: false,
- credit_score: 820,
- frequency_payment: "631ec1c692cebf552c555b8e",
- userid: --
- types_payment: "631ebd0cb114e841d3d7937d": 
+ "customer_id": "631e893ab00295f8f492a2ed",
+ "date": "2022-09-16",
+ "amount": 150000,
+ "interest": 0.15,
+ "term": 12,
+ "firstday_payment": "2022-09-22",
+ "status_aproval": false,
+ "credit_score": 820,
+ "frequency_payment": "631ec1c692cebf552c555b8e",
+ "types_payment": "631ebd0cb114e841d3d7937d",
+ "user_id": "631c2a249280df1998339e73"
 }
 
 ////////////////////////////////
 ###
 // Update a loan when exists 
-PUT http://localhost:4000/loans/631e893ab00295f8f492a2ed HTTP/1.1
+PUT http://localhost:4000/loans/631fef221cab33a59239bef9 HTTP/1.1
 content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYzMDI5ODg4LCJleHAiOjE2NjM2MzQ2ODh9.qDeZ6LYiA5X7ulqIo6FEsCtk0CA-g1h7RQ7wiCTBTww
 
 {
-  "sin": "545456325",
-  "first_name": "Hammid",
-  "last_name": "Ariel",
-  "phone_number": "123-258-3096",
-  "email": "xxx43@gmail.com",
-  "birth_date": "1990-01-01",
-  "salary_month": 5000.00,
-  "address":{ 
-    "address1": "30 San RomanoWay",
-    "address2": "",
-    "city_id": "631e37846af11738e767c672",
-    "postal_code": "M1M1M1"
-   },
-  "picture_url": "https://www.google.com",
-  "status": false,
-  "bank_account": "987654321",
-  "bank_route": "987654321",
-  "bank_branch": "321"
+  "customer_id": "631e893ab00295f8f492a2ed",
+  "date": "2022-09-16",
+  "amount": 110000,
+  "interest": 0.18,
+  "term": 18,
+  "firstday_payment": "2022-09-22",
+  "status_aproval": false,
+  "credit_score": 0,
+  "frequency_payment": "631ec1c692cebf552c555b8e",
+  "types_payment": "631ebd0cb114e841d3d7937d" 
 } 
-
 
 /////////////////////////////
 // Delete a customer
 ###
-DELETE http://localhost:4000/loans/631d5d1a9825aa6653fe22c5 HTTP/1.1
-content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYyOTM5MTQwLCJleHAiOjE2NjM1NDM5NDB9.b0UlIMhpkjRU0itZDijhQzocNlBHEvOvUQyANBTo5dU
-
+DELETE http://localhost:4000/loans/631fcc28bba69399114b4b3f HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWMyYTI0OTI4MGRmMTk5ODMzOWU3MyIsInVzZXJuYW1lIjoiZ3VpbGxlcm1vIiwiaWF0IjoxNjYzMDE4Mzg5LCJleHAiOjE2NjM2MjMxODl9.2Y5dtL7WAhNEFrgFH9I84ptWTr2l3TcdEA6YxeGMYeE
 
 /////////////////////////////
 // Delete All customer

@@ -123,6 +123,7 @@ export const getCustomerById = (req, res) => {
 // OK
 export const updateCustomerById = (req, res) => {
   const customer = req.body;
+  const id = req.params.customerId;
   const { userid } = req; // we retrieve the userid from ;
 
   const NewCustomersinfo = {
@@ -140,10 +141,10 @@ export const updateCustomerById = (req, res) => {
     bank_route: customer.bank_route,
     bank_branch: customer.bank_branch,
     userid: userid,
+    updateAt: new Date()
   };
-  console.log(NewCustomersinfo);
-
-  Customers.findOneAndUpdate(userid, NewCustomersinfo, { new: true })
+ 
+  Customers.findOneAndUpdate(id, NewCustomersinfo, { new: true })
     .then((updatedCustomer) => {
       res.json(updatedCustomer);
     })

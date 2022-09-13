@@ -20,5 +20,5 @@ frequencySchema.set("toJSON", {
 });
 
 frequencySchema.plugin(uniqueValidator);
-const Frequency = model("Frequency", frequencySchema);
-module.exports = Frequency;
+const Frequencies = model("Frequencies", frequencySchema);
+module.exports = Frequencies;

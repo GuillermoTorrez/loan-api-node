@@ -1,8 +1,7 @@
-import Customers from "../models/Customers";
 import Loans from "../models/Loans";
 import Users from "../models/Users";
 import Frequencies from "../models/Frequencies";
-import TypesPayment from "../models/TypesPayment";
+import TypesPayments from "../models/TypesPayment";
 
 export const createLoan = (req, res) => {
   const {
@@ -18,7 +17,7 @@ export const createLoan = (req, res) => {
     types_payment,
   } = req.body;
 
-  const { userid } = req; // we retrieve the userid from request
+  const { userid } = req; // we retrieve the userid from re
 
   const find_user = Users.findOne({ _id: userid });
   if (!find_user) {
@@ -40,7 +39,7 @@ export const createLoan = (req, res) => {
       .end();
   }
 
-  const find_type = TypesPayment.findOne({ _id: types_payment });
+  const find_type = TypesPayments.findOne({ _id: types_payment });
   if (!find_type) {
     return res
       .status(400)
@@ -82,7 +81,7 @@ export const getLoans = (req, res) => {
     })
     .populate({
       path: "customer_id",
-      select: "sin name",
+      select: "sin first_name last_name",
     })
     .then((loan) => {
       if (loan) {
@@ -99,8 +98,7 @@ export const getLoans = (req, res) => {
 
 // OK
 export const getLoanById = (req, res) => {
-  const id = req.params.customerId;
-  console.log(id);
+  const id = req.params.loansId;
   Loans.findById(id)
     .populate({
       path: "frequency_payment",
@@ -112,7 +110,7 @@ export const getLoanById = (req, res) => {
     })
     .populate({
       path: "customer_id",
-      select: "sin name",
+      select: "sin first_name last_name",
     })
     .then((loan) => {
       if (loan) {
@@ -129,8 +127,10 @@ export const getLoanById = (req, res) => {
 
 // OK
 export const updateLoanById = (req, res) => {
-  const loan = req.body;
-  const { userid } = req; // we retrieve the userid from ;
+  const { id } = req.params;
+  const  loan  =  req.body;
+  const { userid } = req;
+
   const NewLoansinfo = {
     customer_id: loan.customer_id,
     date: loan.date,
@@ -142,11 +142,11 @@ export const updateLoanById = (req, res) => {
     credit_score: loan.credit_score,
     frequency_payment: loan.frequency_payment,
     types_payment: loan.types_payment,
-    userid: loan.userid,
+    userid: userid,
+    updateAt: new Date(),
   };
-  console.log(NewLoansinfo);
 
-  Customers.findOneAndUpdate(userid, NewLoansinfo, { new: true })
+  Loans.findOneAndUpdate(id, NewLoansinfo, { new: true })
     .then((updatedLoan) => {
       res.json(updatedLoan);
     })
@@ -156,9 +156,10 @@ export const updateLoanById = (req, res) => {
     });
 };
 
+
 // OK ---
 export const deleteLoanById = (req, res) => {
-  const id = req.params.customerId;
+  const { id } = req.params;
   Loans.findOneAndRemove({ _id: id })
     .then((deletedLoan) => {
       res.json({}).status(204).end();
@@ -168,13 +169,12 @@ export const deleteLoanById = (req, res) => {
     });
 };
 
-///////////////////////
-// export const deleteAllLoan = (req, res) => {
-//  Loans.deleteMany({})
-//    .then((deletedLoan) => {
-//      res.json({}).status(204).end();
-//    })
-//    .catch((err) => {
-//      console.log(err);
-//    });
-// };
+export const deleteAllLoans = (req, res) => {
+  Loans.deleteMany({})
+    .then((deletedLoan) => {
+      res.json({}).status(204).end();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

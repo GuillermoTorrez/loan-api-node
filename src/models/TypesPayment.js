@@ -24,5 +24,5 @@ TypespaymentSchema.set("toJSON", {
 });
 
 TypespaymentSchema.plugin(uniqueValidator);
-const TypesPayment = model("TypesPayment", TypespaymentSchema);
-module.exports = TypesPayment;
+const TypesPayments = model("TypesPayments", TypespaymentSchema);
+module.exports = TypesPayments;

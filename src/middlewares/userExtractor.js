@@ -23,10 +23,10 @@ module.exports = (req, res, next) => {
   if (!token || !decodedToken.id) {
     return res.status(401).json({ error: "token missing or invalid" });
   }
-
-  const { _id :  userid } = decodedToken; // we retrieve of the token the id of the userid
+  
+  const {id:userid } = decodedToken; // we retrieve of the token the id of the userid
   console.log("userid", userid);
   req.userid = userid; // we add the userid to the request
-  
+
   next();
 };
