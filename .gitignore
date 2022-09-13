@@ -4,7 +4,7 @@ env
 
 .rest
 .request
-/request/*
+/request
 
 # dependencies
 /node_modules
