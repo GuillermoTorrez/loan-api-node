@@ -5,10 +5,9 @@ env
 rest
 request
 
-.rest
-.request
-/request
-
+/src/request
+/src/rest
+/src/.rest
 
 # dependencies
 /node_modules
