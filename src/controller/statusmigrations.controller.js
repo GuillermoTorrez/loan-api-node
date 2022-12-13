@@ -11,7 +11,8 @@ export const createNewStatusMigrations = (req, res) => {
 };
 
 export const getStatusMigrations = async (req, res) => {
-  await Status.find({})
+  await Status.find({}, { id: 1, name: 1 })
+    .sort({ name: 1, id: 1 })
     .then((status) => res.json(status))
     .catch((err) => res.status(400).json({ error: err }));
 };

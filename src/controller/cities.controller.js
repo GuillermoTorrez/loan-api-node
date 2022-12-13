@@ -1,6 +1,6 @@
 import Cities from "../models/Cities.js";
 
-export const getCities = async (req, res) => {
+export const getCities = (req, res) => {
   const { city } = req.params;
   const { province_id } = req.params;
 
@@ -26,7 +26,7 @@ export const getCities = async (req, res) => {
     });
 };
 
-export const getAllCities = async (req, res) => {
+export const getAllCities = (req, res) => {
   Cities.find({})
     .then((cities) => {
       if (cities) {

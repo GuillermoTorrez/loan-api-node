@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mybucket-366715",
+  "private_key_id": "1659abdc9017ea1f93c3ef0fb4031b8087e5d16c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDcEU67vbjQQnC3\nw25o6qo3r0vhpujoxok62cWOZLCAdn+X60yoRuZVvfLN8yVZiJZTHiz8KK7U6zbn\n3E+70owEgTGRpxSSx4sacyc/o6K3M6ROhy2eICDGjlr8qmljuvh81Dj1rbu+GN/Y\ngHyeEnYKVLOcVVcqHG8bBm5OaDxTaFArIUaber3ONQxZzUhyF6hYFLIiu4pNyuyQ\nxvGXh/Q2g78t7nYN81Lihs7xg86R5Pp/Cp6QQ6RElC33vQtES05eq8sXp7OK341U\nqZKoeIOxtXV+KXF0Dm5qGTZq+apVflCMGObIowRtPIIidNaRWZ/0CthNKq5x1VCx\nqTiK4BkHAgMBAAECggEAHxpJHOqrCLAjOy2hWK214gnh+SH8cA3DTnCB5eagNX/J\n98A3RN9EZaDjhK0VPcq6qEOvCvJ7Bze5OlreYAbZaDeUOGg7VaVjKRlWVj273RWs\n5rZfQaZ7y2RKQsSZAZHm1cmuxTZJPwxH8tLyCetFCJ/BBNrg52A+abzmcSl1QTpN\nXRD1dIdvgr0PE/KoGjDQbbLZ8rVoWignFbERT5DxDN6kIRJGHAih6AodSt9eGUqC\naxlnGI+pmbQeXUUBy0prqayv7k0rB4DDH9cPg8gMa09QTVs4w71NqVqj8zhFk8T2\nhjfttsXgFNRLXHb+FIUWBxwGI6SQssF27ek55aucqQKBgQD1YBJo0g/btDPs+z6z\nevtvL++gMprjkw3xKBJz7/UkYZflK9MuyNv+SKtvyZ3j1tyM0BR4psFM8e9fTzaq\nnEfYEVwtxf26+CRrOpWyUbQE1Z7ST2SDx3+rr7bhmFkd5l4JvDXbgVEQmLDCgiMI\nGSQrrzeboXyimCP7QE6TEgFRPwKBgQDlmLS5Lh7rDTS27IdPxuXCNwUy80hE5tzX\npjlHc76hEqj3hSR9o8mENAlocVQnNnLpw0DEJH76hFvsUTuZrgTYZs++LmiVWMsC\nBla5P7cnjd2TM/p5baaklYirze+yT6+2HtLAzTKdWCKpkE6kBEoAgBSNpXShzprx\nDM0y32h+OQKBgCK2F4SaisHCyUGx/Rm4wQ7mkhhwcDbXW7aMu6eI/33JDIrP200X\n/v8G2rGyrNJJV+PXn729oUS4SOuLsikKeKNZOVgEVTN43PYKUJjsM/InIhOQRaDa\nvPXVoqJhQeIX75+i71+A+K3HW+H4NOp1XAeN/ujWPGJn8Vcerr7hYixTAoGBAJ8Z\ncLKZ+SbcodjYkvN/Wpt40Qt7dmr4p7RwJWUUGdc4PQo4ow7FPtFz1ckgLzZ1DrBa\nczj4KV2j9qcNq4VVB1qF9BNPyX0kaJjgl5wLQPoR3qcw77LRfxax4GFddWpUuegz\n98tO5nIOLwbdTwFtT3KFTrjRHL87kjbTriZAlgJRAoGAE6Sqt3ACnvAgr9pSfUL9\n2JghVyg6pKNx7fda367h1ONjUSEvRyMLked/SZG14azfmwkS0ylMrH41a+iA3KaS\n6mtEPY0fO1WUd4ebDCwTzvbzkgMLrcYbVtU/4MvpbQ4zIfzjd9DyxYfoz7b3qr4h\nLX1DwJI8mdPtX+MGpDNAM7s=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mybucket24x7-serviceaccount@mybucket-366715.iam.gserviceaccount.com",
+  "client_id": "109367058638110979495",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mybucket24x7-serviceaccount%40mybucket-366715.iam.gserviceaccount.com"
+}

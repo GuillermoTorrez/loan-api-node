@@ -1,26 +1,34 @@
 import Customers from "../models/Customers";
 import Users from "../models/Users";
-import Cities from "../models/Cities";
 
 export const createCustomer = (req, res) => {
   const {
     sin,
-    first_name,
-    last_name,
-    phone_number,
+    firstname,
+    lastname,
+    phonenumber,
     email,
-    birth_date,
-    salary_month,
-    address,
-    picture_url,
-    status_migration_id,
-    bank_account,
-    bank_route,
-    bank_branch,
+    gender,
+    maritalstatus,
+    birthdate,
+    salary,
+    score,
+    address1,
+    address2,
+    province,
+    city,
+    postalcode,
+    photourl,
+    status,
+    bankname,
+    bankaccount,
+    bankroute,
+    bankbranch,
   } = req.body;
 
   const { userid } = req; // we retrieve the userid from request
-  const city_id = req.body.address.city_id;
+
+  console.log("userid", userid);
 
   const find_user = Users.findOne({ _id: userid });
   if (!find_user) {
@@ -34,30 +42,30 @@ export const createCustomer = (req, res) => {
 
   // console.log(city_id);
 
-  const find_city = Cities.findOne({ id: city_id });
-  if (!find_city) {
-    return res
-      .status(400)
-      .json({
-        error: "City not found",
-      })
-      .end();
-  }
-
   const newCustomer = new Customers({
     sin: sin,
-    first_name: first_name,
-    last_name: last_name,
-    phone_number: phone_number,
+    first_name: firstname,
+    last_name: lastname,
+    phone_number: phonenumber,
     email: email,
-    birth_date: birth_date,
-    salary_month: salary_month,
-    address: address,
-    picture_url: picture_url,
-    status_migration_id: status_migration_id,
-    bank_account: bank_account,
-    bank_route: bank_route,
-    bank_branch: bank_branch,
+    birth_date: birthdate,
+    gender: gender,
+    maritalstatus: maritalstatus,
+    salary_month: salary,
+    score: score,
+    address: {
+      address1: address1,
+      address2: address2,
+      province: province,
+      city: city,
+      postal_code: postalcode,
+    },
+    photourl: photourl,
+    status_migration_id: status.id,
+    bank_name: bankname,
+    bank_account: bankaccount,
+    bank_route: bankroute,
+    bank_branch: bankbranch,
     userid: userid,
   });
   newCustomer
@@ -68,15 +76,13 @@ export const createCustomer = (req, res) => {
 
 /////////////////////////////////
 
-
-
 // OK
 export const getCustomers = (req, res) => {
   Customers.find()
-    .populate({
+    /*.populate({
       path: "address.city_id",
       select: "city province_id province_name",
-    })
+    }) */
     .populate({
       path: "status_migration_id",
       select: "name",
@@ -99,10 +105,10 @@ export const getCustomerById = (req, res) => {
   const id = req.params.customerId;
   console.log(id);
   Customers.findById(id)
-    .populate({
+    /*.populate({
       path: "address.city_id",
       select: "city province_id province_name",
-    })
+    }) */
     .populate({
       path: "status_migration_id",
       select: "name",
@@ -141,9 +147,9 @@ export const updateCustomerById = (req, res) => {
     bank_route: customer.bank_route,
     bank_branch: customer.bank_branch,
     userid: userid,
-    updateAt: new Date()
+    updateAt: new Date(),
   };
- 
+
   Customers.findOneAndUpdate(id, NewCustomersinfo, { new: true })
     .then((updatedCustomer) => {
       res.json(updatedCustomer);
@@ -166,7 +172,7 @@ export const deleteCustomerById = (req, res) => {
     });
 };
 
-///////////////////////
+////
 export const deleteAllCustomers = (req, res) => {
   Customers.deleteMany({})
     .then((deletedCustomer) => {
