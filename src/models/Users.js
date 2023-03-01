@@ -13,7 +13,7 @@ const userSchema = new Schema(
     role: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Roles',
+        ref: "Roles",
       },
     ],
     passwordHash: String,
@@ -31,5 +31,5 @@ userSchema.set("toJSON", {
 });
 
 userSchema.plugin(uniqueValidator);
-const User = model("User", userSchema);
+const User = model("Users", userSchema);
 module.exports = User;

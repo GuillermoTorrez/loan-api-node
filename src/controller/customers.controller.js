@@ -79,10 +79,10 @@ export const createCustomer = (req, res) => {
 // OK
 export const getCustomers = (req, res) => {
   Customers.find()
-    /*.populate({
-      path: "address.city_id",
-      select: "city province_id province_name",
-    }) */
+    .populate({
+      path: "userid",
+      select: "name",
+    })
     .populate({
       path: "status_migration_id",
       select: "name",
@@ -105,10 +105,10 @@ export const getCustomerById = (req, res) => {
   const id = req.params.customerId;
   console.log(id);
   Customers.findById(id)
-    /*.populate({
-      path: "address.city_id",
-      select: "city province_id province_name",
-    }) */
+    .populate({
+      path: "userid",
+      select: "name",
+    })
     .populate({
       path: "status_migration_id",
       select: "name",
